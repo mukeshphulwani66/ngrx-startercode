@@ -6,11 +6,11 @@
         <option value="snacks">Snacks</option>
     </select>
     <ul class="grocery-list">
-        @for(grocItem of (filteredGroceries$ | async) ?? (groceries$ | async); track grocItem.id) {
+        @for(groc of groceries$ | async; track groc.id) {
           <li class="grocery-item">
-            <span class="increment-button" (click)="increment(grocItem)">+</span>
-            {{ grocItem.name }}
-            <span class="decrement-button" (click)="decrement(grocItem)">-</span>
+            <span class="increment-button" (click)="increment(groc)">+</span>
+            {{ groc.name }}
+            <span class="decrement-button" (click)="decrement(groc)">-</span>
           </li>
         }@empty {
             <li>loading..</li>
